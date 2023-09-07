@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2023-09-06T18:34:09-07:00",
+    "exported_at": "2023-09-06T18:55:54-07:00",
     "name": "Gregtech New Horizons 2.4.0",
     "author": "danielsgame.media@gmail.com",
     "description": "GT New Horizons is a Technic and CurseForge modpack created by DreamMasterXXL. It is a large modpack with many different mods, including magical and technical mods, but it is all balanced around GregTech 5 Unofficial using MineTweaker. It was featured on Technic in the first Volume of Technic Scraps.",
@@ -16,7 +16,7 @@
     "file_denylist": [],
     "startup": "java  -Xmx{{SERVER_MAXRAM}}  -Dfml.readTimeout=180 @java9args.txt nogui",
     "config": {
-        "files": "{\r\n    \"server.properties\": {\r\n        \"parser\": \"properties\",\r\n        \"find\": {\r\n            \"server-ip\": \"0.0.0.0\",\r\n            \"server-port\": \"{{server.build.env.SERVER_ACTIVE_PORT}}\",\r\n            \"query.port\": \"{{server.build.env.SERVER_ACTIVE_PORT}}\",\r\n            \"level-name\": \"{{server.build.env.LEVEL_NAME}}\",\r\n            \"level-seed\": \"{{server.build.env.LEVEL_SEED}}\",\r\n            \"hardccore\": \"{{server.build.env.HARDCORE_MODE}}\",\r\n            \"max-players\": \"{{server.build.env.MAX_PLAYERS}}\",\r\n            \"motd\": \"{{server.build.env.SERVER_MOTD}}\",\r\n            \"white-list\": \"{{server.build.env.SERVER_WHITELIST}}\"\r\n        }\r\n    }\r\n}",
+        "files": "{\r\n    \"server.properties\": {\r\n        \"parser\": \"properties\",\r\n        \"find\": {\r\n            \"server-ip\": \"0.0.0.0\",\r\n            \"server-port\": \"{{server.build.env.SERVER_ACTIVE_PORT}}\",\r\n            \"query.port\": \"{{server.build.env.SERVER_ACTIVE_PORT}}\",\r\n            \"level-name\": \"{{server.build.env.LEVEL_NAME}}\",\r\n            \"level-seed\": \"{{server.build.env.LEVEL_SEED}}\",\r\n            \"hardcore\": \"{{server.build.env.HARDCORE_MODE}}\",\r\n            \"max-players\": \"{{server.build.env.MAX_PLAYERS}}\",\r\n            \"motd\": \"{{server.build.env.SERVER_MOTD}}\",\r\n            \"white-list\": \"{{server.build.env.SERVER_WHITELIST}}\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \")! For help, type \"\r\n}",
         "logs": "{}",
         "stop": "stop"
@@ -36,7 +36,7 @@
             "default_value": "",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|max:3",
+            "rules": "required|string|max:3|",
             "field_type": "text"
         },
         {
@@ -73,7 +73,7 @@
             "name": "Hardcore Mode",
             "description": "Set server hardcore",
             "env_variable": "SERVER_HARDCORE",
-            "default_value": "false",
+            "default_value": "0",
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|boolean|",
@@ -103,7 +103,7 @@
             "name": "Server Whitelist",
             "description": "Set whitelist enabled or disabled.",
             "env_variable": "SERVER_WHITELIST",
-            "default_value": "true",
+            "default_value": "1",
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|boolean|",
