@@ -9,6 +9,8 @@ Custom Made Pterodactyl Eggs for the Pterodactyl Software Panel
 
 **This is a BETA script and activly being worked on. It confirmed works for starting up your own Gregtech New Horizons Server v2.4.0 on Pterodactyl Software Panel**
 
+**This Script has been updated to be user friendly within the panel so most configuration can be done without going into the config itself. More Eggs to come for different games/applications and soon custom java docker images.**
+
 ---
 
 ### Eggs
