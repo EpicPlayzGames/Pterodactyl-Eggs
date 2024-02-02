@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-02-01T18:41:33-05:00",
+    "exported_at": "2024-02-02T04:25:50-05:00",
     "name": "Gregtech New Horizons V2.5.1",
     "author": "danielkindheart@kindheartfamily.cloud",
     "description": "GT New Horizons is a Technic and CurseForge modpack created by DreamMasterXXL. It is a large modpack with many different mods, including magical and technical mods, but it is all balanced around GregTech 5 Unofficial using MineTweaker. It was featured on Technic in the first Volume of Technic Scraps.",
@@ -23,7 +23,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/bash\r\n# Gregtech New Horizons V2.5.1 Install Script \r\n#\r\n#\r\n#  THIS IS IN BETA, NOT LIABLE FOR ANY DAMAGES CAUSED BY THIS INSTALL SCRIPT\r\n#\r\n# Made By https:\/\/github.com\/EpicPlayzGames\r\n# Server Files: \/mnt\/server\r\n\r\nGTNH_ZIP_FILE=\"GT_New_Horizons_2.5.1_Server_Java_17-21.zip\"\r\n\r\nif [[ ! -d \/mnt\/server ]]; then\r\n  mkdir \/mnt\/server\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\necho -e \"Running: curl -o GT_New_Horizons_2.5.1_Server_Java_17-20.zip https:\/\/downloads.gtnewhorizons.com\/ServerPacks\/GT_New_Horizons_2.5.1_Server_Java_17-21.zip && unzip $GTNH_ZIP_FILE\"\r\n\r\ncurl -o GT_New_Horizons_2.5.1_Server_Java_17-20.zip https:\/\/downloads.gtnewhorizons.com\/ServerPacks\/GT_New_Horizons_2.5.1_Server_Java_17-21.zip && unzip $GTNH_ZIP_FILE\r\n\r\nrm -r *.md && rm -r *.bat\r\n\r\nchmod +x startserver-java9.sh\r\n\r\necho -e \"Install Complete!\"",
+            "script": "#!\/bin\/bash\r\n# Gregtech New Horizons V2.5.1 Install Script \r\n#\r\n#\r\n#  THIS IS IN BETA, NOT LIABLE FOR ANY DAMAGES CAUSED BY THIS INSTALL SCRIPT\r\n#\r\n# Made By https:\/\/github.com\/EpicPlayzGames\r\n# Server Files: \/mnt\/server\r\n\r\nGTNH_ZIP_FILE=\"GT_New_Horizons_2.5.1_Server_Java_17-21.zip\"\r\n\r\nif [[ ! -d \/mnt\/server ]]; then\r\n  mkdir \/mnt\/server\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\napk --no-cache add curl\r\n\r\necho -e \"Running: curl -o $GTNH_ZIP_FILE https:\/\/downloads.gtnewhorizons.com\/ServerPacks\/$GTNH_ZIP_FILE && unzip $GTNH_ZIP_FILE\"\r\n\r\ncurl -o $GTNH_ZIP_FILE https:\/\/downloads.gtnewhorizons.com\/ServerPacks\/$GTNH_ZIP_FILE && unzip $GTNH_ZIP_FILE\r\n\r\nrm -r *.md && rm -r *.bat\r\n\r\nchmod +x startserver-java9.sh\r\n\r\necho -e \"Install Complete!\"",
             "container": "alpine:3.4",
             "entrypoint": "ash"
         }
