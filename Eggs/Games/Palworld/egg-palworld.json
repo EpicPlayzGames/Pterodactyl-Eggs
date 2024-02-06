@@ -1,0 +1,52 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2024-02-06T00:28:12-05:00",
+    "name": "Palworld",
+    "author": "danielkindheart@kindheartfamily.cloud",
+    "description": "Palworld is a brand-new, multiplayer, open-world survival crafting game where you can befriend and collect mysterious creatures called \"Pal\" in a vast world! Make your Pals fight, build, farm, and work in factories",
+    "features": null,
+    "docker_images": {
+        "ghcr.io\/pterodactyl\/yolks:debian": "ghcr.io\/pterodactyl\/yolks:debian"
+    },
+    "file_denylist": [],
+    "startup": ".\/PalServer.sh -port={{SERVER_ACTIVE_PORT}} -players={{SERVER_PLAYERS}} -useperfthreads -NoAsyncLoadingThread -UseMultithreadForDS",
+    "config": {
+        "files": "{}",
+        "startup": "{}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#############################\r\n# Palworld apterodactyl Egg #\r\n#    By: EpicPlayzGames     #\r\n#############################\r\n\r\n# Check for Server Directory.\r\nif [[ ! -d \/mnt\/server ]]; then\r\n  mkdir \/mnt\/server\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\n## Set Default Steam User.\r\nif [ \"${STEAM_USER}\" == \"\" ]; then\r\n    echo -e \"steam user is not set.\\n\"\r\n    echo -e \"Using anonymous user.\\n\"\r\n    STEAM_USER=anonymous\r\n    STEAM_PASS=\"\"\r\n    STEAM_AUTH=\"\"\r\nelse\r\n    echo -e \"user set to ${STEAM_USER}\"\r\nfi\r\n\r\n# Install Dependencies.\r\napt install -y lib32gcc-s1 software-properties-common apt-utils\r\n\r\n# Add Multiverse Repo.\r\nadd-apt-repository multiverse\r\ndpkg --add-architecture i386\r\n\r\n## Setup SteamCMD.\r\ncd \/tmp\r\nmkdir -p \/mnt\/server\/steamcmd\r\ncurl -sSL -o steamcmd.tar.gz https:\/\/steamcdn-a.akamaihd.net\/client\/installer\/steamcmd_linux.tar.gz\r\ntar -xzvf steamcmd.tar.gz -C \/mnt\/server\/steamcmd\r\nmkdir -p \/mnt\/server\/steamapps\r\ncd \/mnt\/server\/steamcmd\r\n\r\n# SteamCMD fails otherwise for some reason, even running as root.\r\n# This is changed at the end of the install process.\r\nchown -R root:root \/mnt\/server\r\nexport HOME=\/mnt\/server\r\n\r\n# Palworld Steam App ID.\r\nSRCDS_APPID=2394010\r\n\r\n# Download the Steamworks SDK.\r\nsteamcmd +force_install_dir '\/mnt\/server\/Steam\/steamapps\/common\/steamworks' +login ${STEAM_USER} +app_update 1007 +quit\r\n\r\n## Install Palworld Server.\r\n.\/steamcmd.sh +force_install_dir \/mnt\/server +login ${STEAM_USER} ${STEAM_PASS} ${STEAM_AUTH} +app_update ${SRCDS_APPID} validate +quit\r\n\r\n# Copy Default Game Settings to Server Game Settings.\r\ncp \/mnt\/server\/DefaultPalWorldSettings.ini \/mnt\/server\/Pal\/Saved\/Config\/LinuxServer\/PalWorldSettings.ini\r\n\r\n## Set Up 64 Bit Libraries.\r\nmkdir -p \/mnt\/server\/.steam\/sdk64\r\ncp '\/mnt\/server\/linux64\/steamclient.so' \/mnt\/server\/.steam\/sdk64\/",
+            "container": "ghcr.io\/pterodactyl\/installers:debian",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Server Port",
+            "description": "Set the Default Server Port",
+            "env_variable": "SERVER_ACTIVE_PORT",
+            "default_value": "8211",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|numeric|",
+            "field_type": "text"
+        },
+        {
+            "name": "Server Players",
+            "description": "Set the Max Server Players",
+            "env_variable": "SERVER_PLAYERS",
+            "default_value": "8",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|numeric|",
+            "field_type": "text"
+        }
+    ]
+}
