@@ -19,4 +19,5 @@ Custom Made Pterodactyl Eggs for the Pterodactyl Software Panel
       * [Version 2.4.0](https://github.com/EpicPlayzGames/Pterodactyl-Eggs/blob/main/Eggs/Games/Minecraft/GregtechNewHorizons/v2.4.0/)
       * [Version 2.5.1 (Alpine)](Eggs/Games/Minecraft/GregtechNewHorizons/v2.5.1/egg-gregtech-new-horizons-v2-5-1--alpine.json)
       * [Version 2.5.1 (Debian)](Eggs/Games/Minecraft/GregtechNewHorizons/v2.5.1/egg-gregtech-new-horizons-v2-5-1--debian.json)
+      * [Version 2.6.0](Eggs/Games/Minecraft/GregtechNewHorizons/v2.6.0/egg-gregtech-new-horizons-v2-6-0.json)
 * [Palworld](https://github.com/EpicPlayzGames/Pterodactyl-Eggs/blob/main/Eggs/Games/Palworld/)
