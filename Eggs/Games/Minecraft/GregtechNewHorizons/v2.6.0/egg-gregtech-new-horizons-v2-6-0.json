@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-05-07T04:03:16-05:00",
+    "exported_at": "2024-05-18T12:37:17-05:00",
     "name": "Gregtech New Horizons V2.6.0",
     "author": "danielsgame.media@gmail.com",
     "description": "GT New Horizons is a Technic and CurseForge modpack created by DreamMasterXXL. It is a large modpack with many different mods, including magical and technical mods, but it is all balanced around GregTech 5 Unofficial using MineTweaker. It was featured on Technic in the first Volume of Technic Scraps.",
@@ -16,7 +16,7 @@
         "Java 17": "ghcr.io\/pterodactyl\/yolks:java_17"
     },
     "file_denylist": [],
-    "startup": "java  -Xmx{{SERVER_MAXRAM}} -Dfml.readTimeout=180 @java9args.txt nogui",
+    "startup": "java  -Xmx{{SERVER_MAXRAM}} -Dfml.readTimeout=180 @java9args.txt -jar lwjgl3ify-forgePatches.jar nogui",
     "config": {
         "files": "{\r\n    \"server.properties\": {\r\n        \"parser\": \"properties\",\r\n        \"find\": {\r\n            \"server-ip\": \"0.0.0.0\",\r\n            \"server-port\": \"{{server.build.env.SERVER_ACTIVE_PORT}}\",\r\n            \"query.port\": \"{{server.build.env.SERVER_QUERY_PORT}}\",\r\n            \"rcon.port\": \"{{server.build.env.SERVER_RCON_PORT}}\",\r\n            \"enable-rcon\": \"{{server.build.env.SERVER_RCON}}\",\r\n            \"enable-query\": \"{{server.build.env.SERVER_QUERY}}\",\r\n            \"level-name\": \"{{server.build.env.LEVEL_NAME}}\",\r\n            \"level-seed\": \"{{server.build.env.LEVEL_SEED}}\",\r\n            \"hardcore\": \"{{server.build.env.HARDCORE_MODE}}\",\r\n            \"max-players\": \"{{server.build.env.MAX_PLAYERS}}\",\r\n            \"motd\": \"{{server.build.env.SERVER_MOTD}}\",\r\n            \"white-list\": \"{{server.build.env.SERVER_WHITELIST}}\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \")! For help, type \"\r\n}",
