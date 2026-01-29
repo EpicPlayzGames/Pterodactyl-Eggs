@@ -1,0 +1,48 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2026-01-29T06:33:19-06:00",
+    "name": "Gregtech New Horizons V2.8.4",
+    "author": "danielsgame.media@gmail.com",
+    "description": "GT New Horizons is a Technic and CurseForge modpack created by DreamMasterXXL. It is a large modpack with many different mods, including magical and technical mods, but it is all balanced around GregTech 5 Unofficial using MineTweaker. It was featured on Technic in the first Volume of Technic Scraps.",
+    "features": [
+        "eula",
+        "java_version"
+    ],
+    "docker_images": {
+        "Java 21": "ghcr.io\/pterodactyl\/yolks:java_21",
+        "Java 19": "ghcr.io\/pterodactyl\/yolks:java_19",
+        "Java 18": "ghcr.io\/pterodactyl\/yolks:java_18",
+        "Java 17": "ghcr.io\/pterodactyl\/yolks:java_17"
+    },
+    "file_denylist": [],
+    "startup": "java  -Xms128M -XX:MaxRAMPercentage=95.0 -Dfml.readTimeout=180 @java9args.txt -jar {{SERVER_JARFILE}} nogui",
+    "config": {
+        "files": "{\r\n    \"server.properties\": {\r\n        \"parser\": \"properties\",\r\n        \"find\": {\r\n            \"server-ip\": \"0.0.0.0\",\r\n            \"server-port\": \"{{server.build.default.port}}\",\r\n            \"query.port\": \"{{server.build.default.port}}\"\r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \")! For help, type \"\r\n}",
+        "logs": "{}",
+        "stop": "stop"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n# Gregtech New Horizons V2.6.1 Install Script \r\n#\r\n# Made By https:\/\/github.com\/EpicPlayzGames\r\n# Server Files: \/mnt\/server\r\n\r\nGTNH_ZIP_FILE=\"GT_New_Horizons_2.8.4_Server_Java_17-25.zip\"\r\n\r\nif [[ ! -d \/mnt\/server ]]; then\r\n  mkdir \/mnt\/server\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\napk --no-cache add curl unzip\r\n\r\necho -e \"Running: curl -o $GTNH_ZIP_FILE https:\/\/downloads.gtnewhorizons.com\/ServerPacks\/$GTNH_ZIP_FILE && unzip $GTNH_ZIP_FILE\"\r\n\r\ncurl -o $GTNH_ZIP_FILE https:\/\/downloads.gtnewhorizons.com\/ServerPacks\/$GTNH_ZIP_FILE && unzip $GTNH_ZIP_FILE\r\n\r\nrm -r *.md && rm -r *.bat\r\n\r\nchmod +x startserver-java9.sh\r\n\r\necho -e \"Install Complete!\"",
+            "container": "alpine:3.4",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Server Jar File",
+            "description": "The name of the server jarfile to run the server with.",
+            "env_variable": "SERVER_JARFILE",
+            "default_value": "lwjgl3ify-forgePatches.jar",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|regex:\/^([\\w\\d._-]+)(\\.jar)$\/",
+            "field_type": "text"
+        }
+    ]
+}
